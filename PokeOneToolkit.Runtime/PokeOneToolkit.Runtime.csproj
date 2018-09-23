@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MAPAPI">
+      <HintPath>..\DLLs\MAPAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="PSXAPI">
       <HintPath>..\DLLs\PSXAPI.dll</HintPath>
       <Private>false</Private>

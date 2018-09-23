@@ -13,7 +13,7 @@ namespace PokeOneToolkit
             new Patcher().Run();
 
             Console.WriteLine("Finished.");
-            Console.ReadLine();
+            // Console.ReadLine();
         }
     }
 }
