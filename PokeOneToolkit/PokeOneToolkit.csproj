@@ -2,7 +2,16 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net40;netcoreapp2.1</TargetFrameworks>
+    <TargetFramework>net45</TargetFramework>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dnlib-new" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PokeOneToolkit.Runtime\PokeOneToolkit.Runtime.csproj" />
+  </ItemGroup>
 
 </Project>

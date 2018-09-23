@@ -1,4 +1,5 @@
 ﻿using System;
+using PokeOneToolkit.Tools;
 
 namespace PokeOneToolkit
 {
@@ -6,7 +7,13 @@ namespace PokeOneToolkit
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("PokeOneToolkit\n");
+
+            Console.WriteLine("Running patcher...");
+            new Patcher().Run();
+
+            Console.WriteLine("Finished.");
+            Console.ReadLine();
         }
     }
 }
