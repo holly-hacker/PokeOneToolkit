@@ -33,12 +33,17 @@ namespace PokeOneToolkit.Runtime
             Log($">> {proto._Name} {ToJsonString(proto)}");
         }
 
-
+        private static Dictionary<string, Resp.MapDump> _editedMapDumps = new Dictionary<string, Resp.MapDump>();
 
         public static void HandleRecv(ref Proto proto)
         {
             switch (proto) {
                 case Resp.MapServerMap msm: {
+                    if (_editedMapDumps.ContainsKey(msm.MapName))
+                    {
+                        Log("This map is already edited.");
+                        return;
+                    }
                     var md = Resp.MapDump.Deserialize(CompressionHelper.DecompressBytes(msm.MapData));
                     
                     foreach (var npc in md.NPCs.OrderBy(x => x.Settings.NPCName)) {
@@ -62,6 +67,7 @@ namespace PokeOneToolkit.Runtime
                     Log($"Removed {removed} cut trees");
 
                     msm.MapData = CompressionHelper.CompressBytes(Proto.Serialize(md));
+                    _editedMapDumps.Add(msm.MapName, md);
                     Log("Edited mapdata!");
                     return;
                 }
