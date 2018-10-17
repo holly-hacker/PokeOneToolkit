@@ -65,9 +65,12 @@ namespace PokeOneToolkit.Runtime
                     case Resp.Login login:
                         // login.Battle = null;
                         // login.Username = "✈️";
-                        login.SkinsUser.EquipedClothe = login.Equip.Clothe = 1;
-                        login.SkinsUser.EquipedHat = login.Equip.Hat = 1;
-                        login.Style.Hair = 0;
+                        if (login.SkinsUser != null) {
+                            login.SkinsUser.EquipedClothe = login.Equip.Clothe = 1;
+                            login.SkinsUser.EquipedHat = login.Equip.Hat = 1;
+                        }
+                        if (login.Style != null)
+                            login.Style.Hair = 0;
                         return;
 
                 }
